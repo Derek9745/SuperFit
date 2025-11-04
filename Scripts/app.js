@@ -1,29 +1,43 @@
 import { ExerciseItem } from './ExerciseItem.js';
-import { SessionItem } from './SessionItem.js';
-const stackContainer = document.getElementsByClassName('exerciseStack');
-const addExerciseBtn = document.getElementsByClassName('addExerciseBtn');
-const exerciseForm = document.getElementsByClassName('exerciseForm');
+
+const stackContainer = document.querySelector('.exerciseStack');
+const addExerciseBtn = document.querySelector('.addExerciseBtn');
+const exerciseForm = document.querySelector('.exerciseForm');
 
 function main() {
+  addExerciseBtn.addEventListener('click', (e) => {
+    e.preventDefault();
 
-//Add a new exercise each time the button is clicked
-addExerciseBtn.addEventListener('click', () => {
-  // Create a new exercise-item element in the html
-  const exerciseItem = document.createElement('exercise-item');
-  const exerciseData = {
-      name: exerciseForm.exerciseName.value,
-      reps: exerciseForm.reps.value,
-      time: exerciseForm.time.value,
-      weight: exerciseForm.weight.value,
-    };
+    const name = exerciseForm.exerciseName.value;
+    const reps = exerciseForm.reps.value;
+    const time = exerciseForm.time.value;
+    const weight = exerciseForm.weight.value;
 
 
+    // Check required fields
+    if (!name) {
+      alert("Please enter an exercise name.");
+      return;
+    }
+    if (!reps) {
+      alert("Please enter the number of reps.");
+      return;
+    }
 
 
-  
-  // Reset the form
-  exerciseForm.reset();
-});
+    // Create and configure custom element
+    const exerciseItem = document.createElement('exercise-item');
+    exerciseItem.setAttribute('exercise-name', name);
+    exerciseItem.setAttribute('reps', reps);
+    exerciseItem.setAttribute('time', time);
+    exerciseItem.setAttribute('weight', weight);
 
-  main();
+    // Add to stack
+    stackContainer.append(exerciseItem);
+
+    // Reset form
+    exerciseForm.reset();
+  });
 }
+
+main();

@@ -5,7 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>SuperFit</title>
 
-    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="SessionStyles.css" />
+    
 
     <!-- bootstrap link imports for the navbar -->
     <link
@@ -58,12 +59,7 @@
 
     <!--a flex box that splits the entire screen into two halfs -->
     <div class="leftRightFlex">
-      <!-- left half of the screen for the calender/planner section-->
-      <div class="left-section">
-        <h2>Calender section</h2>
-        <div class="calendar"></div>
-      </div>
-
+    
       <!-- Right half of the screen-->
       <div class="right-section">
         <!-- main session container card -->
@@ -76,6 +72,7 @@
              <!-- An exercise item will be added here -->
               <!-- An exercise item will be added here -->
                <!-- An exercise item will be added here -->
+                
             </div>
             <form class="exerciseForm">
               <input
@@ -84,7 +81,7 @@
                 placeholder="Exercise name"
                 required
               />
-              <input type="number" name="reps" placeholder="Reps" />
+              <input type="number" name="reps" placeholder="Reps" required/>
               <input type="text" name="time" placeholder="Time (optional)" />
               <input
                 type="number"
@@ -93,17 +90,29 @@
               />
               <button class= "addExerciseBtn" type="submit">Add Exercise</button>
             </form>
+            <form>
+              <div>
+                <hr>
+                <input type="date" id="session-Date" name="event-date" required>
+                <button  id="saveSessionBtn"type = "submit">Save Session</button>
+              </div>
+            </form>
+           
+            
           </div>
         </div>
-         <!-- Exercise Library (right 20% of right section) -->
+         <!-- Exercise Library  -->
     <div class="sessionLibrary">
       <h4 class = "headerTitle">Exercise Library</h4>
-      <div class="ExerciseItem">Push-Up</div>
-      <div class="ExerciseItem">Squat</div>
-      <div class="ExerciseItem">Deadlift</div>
+      <div class="">Push-Up</div>
+      <div class="">Squat</div>
+      <div class="">Deadlift</div>
     </div>
      
     </div>
-      
+    
+      <script type="module" src="Scripts/app.js"></script>
+    
+
   </body>
 </html>
