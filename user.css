@@ -49,19 +49,6 @@ body {
   border-radius: 10px;
 }
 
-.runner-graphic {
-  grid-area: runner;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.runner-graphic img {
-  max-width: 100%;
-  height: auto;
-  border-radius: 10px;
-}
-
 .subscription {
   grid-area: subscription;
   background-color: #cce4ff;
@@ -100,7 +87,8 @@ form input, form textarea {
   background-color: #f7fbff;
 }
 
-#updateBtn {
+#updateBtn,
+#updatePaymentBtn {
   margin-top: 1rem;
   padding: 0.6rem 1.2rem;
   background-color: #0077cc;
@@ -110,6 +98,17 @@ form input, form textarea {
   cursor: pointer;
 }
 
-#updateBtn:hover {
+#updateBtn:hover,
+#updatePaymentBtn:hover {
   background-color: #005fa3;
+}
+
+#paymentInfo p {font-size: 1rem;
+  color: #333;
+  margin: 5px 0;
+}
+
+#paymentInfo em {
+  color: #0077cc;
+  font-style: italic;
 }
