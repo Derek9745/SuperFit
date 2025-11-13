@@ -1,21 +1,25 @@
+
 body {
   margin: 0;
   font-family: 'Segoe UI', sans-serif;
-  background-color: #e0f2ff;
-  color: #333;
+  background-color: #1e1f26;  
+  color: white;                
 }
 
+/* Navbar */
 .navbar {
   display: flex;
   justify-content: center;
-  background-color: #0077cc;
-  padding: 1rem;
+  background-color: #3162f2;   
+
   gap: 1rem;
+
+
 }
 
 .navbar button {
-  background-color: #ffffff;
-  color: #0077cc;
+  background-color: #0892D0;   
+  color: white;
   border: none;
   padding: 0.6rem 1.2rem;
   border-radius: 5px;
@@ -25,9 +29,11 @@ body {
 }
 
 .navbar button:hover {
-  background-color: #cce4ff;
+  background-color: cyan;
+  color: black;
 }
 
+/* Container */
 .container {
   display: grid;
   grid-template-areas:
@@ -39,76 +45,99 @@ body {
   gap: 2rem;
   padding: 2rem;
   max-width: 800px;
-  margin: auto;
+   color: white;  
 }
 
-.user-info {
-  grid-area: user-info;
-  background-color: #cce4ff;
-  padding: 1.5rem;
-  border-radius: 10px;
-}
 
-.subscription {
-  grid-area: subscription;
-  background-color: #cce4ff;
-  padding: 1.5rem;
-  border-radius: 10px;
-}
-
+.user-info,
+.subscription,
 .faqs {
-  grid-area: faqs;
-  background-color: #d9f4ff;
+  background-color: #252731;  
   padding: 1.5rem;
-  border-radius: 10px;
+  border-radius: 3px;       
+  border: 1px solid rgba(105, 105, 105, 0.5); 
 }
-.navbar-brand{
-  padding-left:2%;
-}
+
+
 
 
 h2 {
   margin-top: 0;
-  color: #005fa3;
+  color: #0892D0;
 }
 
 form label {
   display: block;
   margin-top: 1rem;
   font-weight: bold;
+  color: white;
 }
 
-form input, form textarea {
+form input,
+form textarea,
+form select {
   width: 100%;
-  padding: 0.5rem;
+  padding: 0.6rem 0.8rem;
   margin-top: 0.3rem;
-  border: 1px solid #aaa;
-  border-radius: 5px;
-  background-color: #f7fbff;
+  border: 1px solid rgba(105, 105, 105, 0.5);
+  border-radius: 10px;            
+  background-color: #1e1f26;      
+  color: white;                    
+  outline: none;
+  font-size: 1rem;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
+form input::placeholder,
+form textarea::placeholder,
+form select::placeholder {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+
+form input:focus,
+form textarea:focus,
+form select:focus {
+  border-color: #0892D0;
+  box-shadow: 0 0 5px #0892D0;
+  background-color: #2a2b36;
+}
+
+/* Buttons */
 #updateBtn,
 #updatePaymentBtn {
   margin-top: 1rem;
   padding: 0.6rem 1.2rem;
-  background-color: #0077cc;
+  background-color: #0892D0;
   color: white;
   border: none;
-  border-radius: 5px;
+  border-radius: 3px;
   cursor: pointer;
+  transition: background-color 0.3s ease;
 }
 
 #updateBtn:hover,
 #updatePaymentBtn:hover {
-  background-color: #005fa3;
+  background-color: cyan;
+  color: black;
 }
 
-#paymentInfo p {font-size: 1rem;
-  color: #333;
+
+#paymentInfo p {
+  font-size: 1rem;
+  color: white;
   margin: 5px 0;
 }
 
 #paymentInfo em {
-  color: #0077cc;
+  color: #0892D0;
   font-style: italic;
+}
+
+.flexleftright{
+  display:flex;
+  flex-direction:row;
+  background-color: #1e1f26;
+  
+
 }

@@ -2,7 +2,7 @@ import { ExerciseItem } from './ExerciseItem.js';
 import {SessionItem} from "./SessionItem.js";
 import {SessionList} from "./SessionList.js";
 import {StopWatch} from "./StopWatch.js";
-
+import { ExerciseLibraryList } from './ExerciseLibraryList.js';
 const stackContainer = document.querySelector('.exerciseStack');
 const addExerciseBtn = document.querySelector('.addExerciseBtn');
 const deleteExerciseBtn = document.querySelector(".deleteBtn");
@@ -21,7 +21,7 @@ const timerResetBtn = document.querySelector(".timerResetBtn");
 
 
 const sessionList = new SessionList();
-const stopWatch = new StopWatch();
+const stopWatch = new StopWatch(60);
 let timerInterval;
 let elapsedSeconds = 0;
 
@@ -50,6 +50,39 @@ function main() {
 
 
 })
+
+
+function populateExerciseLibrary() {
+  const library = new ExerciseLibraryList();
+  const container = document.querySelector('.exerciseList');
+
+  // Clear any existing items
+  container.innerHTML = '';
+
+  // Loop through exercises and create elements
+  library.items.forEach((exerciseName) => {
+    const itemDiv = document.createElement('div');
+    itemDiv.classList.add('exerciseLibraryItem');
+
+    const nameDiv = document.createElement('div');
+    nameDiv.textContent = exerciseName;
+
+    const addBtn = document.createElement('button');
+    addBtn.classList.add('exerciseLibraryAddBtn');
+    addBtn.textContent = '+';
+
+    // Optional: attach click behavior for future functionality
+    addBtn.addEventListener('click', () => {
+      console.log(`Added ${exerciseName}`);
+      // You can handle adding the exercise to a workout plan here
+    });
+
+    itemDiv.appendChild(nameDiv);
+    itemDiv.appendChild(addBtn);
+
+    container.appendChild(itemDiv);
+  });
+}
 
 
   addExerciseBtn.addEventListener('click', (e) => {
@@ -94,14 +127,18 @@ function main() {
         if (confirmDelete) exerciseItem.remove();
       }
     }
-     if (e.target.classList.contains('.pr')) {
+     if (e.target.classList.contains('.completeBtn')) {
       const exerciseItem = e.target.closest('exercise-item');
       if (exerciseItem) {
-        search 
+        
+        
       }
     }
    
   });
+ 
+
+
   
   startBtn.addEventListener('click', (e) => {
       const isActive = sessionBox.classList.contains('activeSession');
@@ -155,7 +192,9 @@ deleteSessionBtn.addEventListener('click',(e)=>{
 })
 
 
-
+document.addEventListener('DOMContentLoaded', () => {
+  populateExerciseLibrary();
+});
 
 }
 
