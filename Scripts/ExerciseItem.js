@@ -5,6 +5,7 @@ export class ExerciseItem extends HTMLElement {
 
 
 
+
   connectedCallback() {
     // Read values from attributes
     const exerciseName = this.getAttribute('exercise-name') || "Unnamed";
@@ -41,8 +42,9 @@ export class ExerciseItem extends HTMLElement {
         <div class="label">Note</div>
         <span contenteditable="true" class="exercise-note">______</span>
       </div>
-       <div class="exercise-field">
-        <button class="pr">P. Record</button>
+      
+      <div class="exercise-field">
+        <button id="completeBtn"">Complete</button>
       </div>
 
       <div class="exercise-field">

@@ -1,128 +1,173 @@
-:root{
-  --bg:#dff2fb;
-  --panel:#86c1e6;
-  --panel-shadow:rgba(0,0,0,.15);
-  --card-shadow:rgba(0,0,0,.18);
-  --white:#fff;
-  --text:#0a0a0a;
-  --accent:#66ff60;
-}
-
-.analytics-page{
-  background:var(--bg);
-  color:var(--text);
-  font-family:'Segoe UI',sans-serif;
-  margin:0;
-}
-.analytics-page *{
-  box-sizing:border-box;
-}
-
-.content{
-  max-width:1000px;
-  margin:40px auto;
-  display:grid;
-  grid-template-columns:1fr 280px;
-  gap:24px;
+/* Page Background */
+.analytics-page {
+    background-color: #1e1f26; 
+    color: white;
+    min-height: 100vh;
+    font-family: 'Segoe UI', sans-serif;
 }
 
 
-.panel{
-  background:var(--panel);
-  border-radius:10px;
-  padding:22px;
-  box-shadow:0 6px 15px var(--panel-shadow);
-  min-height:320px;
+.navbar {
+    background-color: #24273c !important;
 }
-.panel-title{
-  text-align:left;
-  font-size:14px;
-  font-weight:700;
-  margin:0;
+.navbar .nav-link {
+    color: white !important;
 }
-.panel-left{
-  place-self:center;
-  width:420px;
-}
-.panel-right{
-  position:sticky;
-  top:120px;
-  width:280px;
+
+/* Main Content Layout */
+.content {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    gap: 20px;
+    flex-wrap: wrap;
+    background-color: #252731;  
+    border: 1px solid rgba(105, 105, 105, 0.5); 
+    margin:20px;
 }
 
 
-.panel-header{
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:10px;
-  margin-bottom:8px;
+.panel {
+    border-radius: 3px;
+    padding: 20px;
+    background-color: #2c2f3a; 
 }
 
-.time-range-select{
-  max-width:140px;
-  padding:4px 8px;
-  font-size:12px;
-  border-radius:8px;
-  border:1px solid rgba(0,0,0,0.15);
+/* Left Panel */
+.panel-left {
+    flex: 2;
+    min-width: 350px;
+    background-color: #252731;  
+    border: 1px solid rgba(105, 105, 105, 0.5); 
+}
+
+/* Right Panel */
+.panel-right {
+    flex: 1;
+    min-width: 200px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    background-color: #252731;  
+    border: 1px solid rgba(105, 105, 105, 0.5); 
+}
+
+/* Panel Header */
+.panel-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.panel-title {
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+    color: white;
+}
+
+/* Time Range Select */
+.time-range-select {
+    width: 120px;
+    background-color: #1e1f26;
+    color:#1e1f26;
+    border: 1px solid white;
+    border-radius: 3px;
+}
+.time-range-select option {
+    background-color: #2c2f3a;
+   background-color: #cce4ff; 
+}
+
+/* Graph Card */
+.graph-card {
+    background-color: #1e1f26;
+    border: 1px solid rgba(105, 105, 105, 0.5); 
+    padding: 20px;
+    border-radius: 3px;
+
 }
 
 
-.graph-card{
-  background:var(--white);
-  border-radius:6px;
-  box-shadow:0 6px 12px var(--card-shadow);
-  padding:14px;
-  margin:10px 14px 16px;
-}
-.graph-card canvas{
-  display:block;
-  width:100%;
-  height:210px;
-}
-
-
-.run-report{
-  margin-left:14px;
-  padding:8px 16px;
-  border:0;
-  border-radius:12px;
-  background:var(--accent);
-  color:#053b09;
-  font-weight:700;
-  box-shadow:0 2px 0 rgba(0,0,0,.2) inset;
-  cursor:pointer;
+.run-report, .side-buttons button {
+    width: 100%;
+    padding: 10px 15px;
+    margin-top: 10px;
+    border: none;
+    border-radius: 3px;
+    font-weight: bold;
+    background-color: #0892D0;
+    color: white;
+    transition: background-color 0.3s ease; 
+    cursor: pointer;
 }
 
-.side-buttons{
-  display:flex;
-  flex-direction:column;
-  gap:12px;
-  margin:10px 14px;
+.run-report:hover{
+    background-color: cyan;
+    color: white; 
 }
 
-.side-buttons button{
-  text-align:left;
-  padding:10px 14px;
-  border:0;
-  border-radius:6px;
-  background:var(--white);
-  color:#1c2a35;
-  font-weight:600;
-  box-shadow:
-    0 2px 0 rgba(0,0,0,.18) inset,
-    0 2px 8px rgba(0,0,0,.08);
-  cursor:pointer;
+#myLineChart{
+    border-radius: 3px;
+    border: 1px solid rgba(105, 105, 105, 0.5); 
+
 }
 
-@media (max-width:860px){
-  .content{
-    grid-template-columns:1fr;
-  }
-  .panel-left,
-  .panel-right{
-    width:100%;
-    place-self:stretch;
-    position:static;
-  }
+#btnWeightLoss{
+    background-color: #0892D0;
+    color: white;
+    transition: background-color 0.3s ease; 
+}
+
+#btnWeightLoss:hover{
+    background-color: cyan;
+    color: white; 
+}
+
+#btnWeightGain{
+    background-color: #0892D0;
+    color: white;
+    transition: background-color 0.3s ease; 
+}
+#btnWeightGain:hover{
+    background-color: cyan;
+    color: white; 
+}
+
+#btnWeightGain:checked{
+    background-color: cyan;
+    color: white; 
+}
+
+#btnWorkoutTime{
+    background-color: #0892D0;
+    color: white;
+    transition: background-color 0.3s ease; 
+}
+#btnWorkoutTime:hover{
+    background-color: cyan;
+    color: white; 
+}
+/* Responsive Chart */
+canvas {
+    width: 100% !important;
+    height: 300px !important;
+    background-color: #cce4ff; 
+}
+
+/* Responsive Layout */
+@media (max-width: 900px) {
+    .content {
+        flex-direction: column;
+    }
+    .panel-right {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+    .side-buttons button {
+        flex: 1;
+        margin: 5px;
+    }
 }

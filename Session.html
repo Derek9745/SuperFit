@@ -62,27 +62,68 @@
     <div class="right-section">
       <!-- main session container card -->
       <div class="Session">
-        
-          <div class="selectedDate"></div>
-          <div class="datesContainer">
-            <div class="month">
-              <div class="arrow prev-month"></div>
-              <div class="month-item"></div>
-              <div class="arrow next-month"></div>
-            </div>
-            <div class="days-container"></div>
-          </div>
-        
         <div class="sessionOutline">
-          <p class="headerTitle">Current Session</p>
+          <div class="horizontalDatePickerLayout">
+            <div class="monthPicker">
+              <button class="prevMonthBtn"></button>
+              <span class="monthLabel">Month</span>
+              <button class="nextMonthBtn"></button>
+            </div>
+            <div class="dayPicker">
+              <div class="currentDate">
+              <span class="currentDayLabel">day </span>
+              <span class="currentDayDate"> date</span>
+              </div>
+               <div class="currentDate">
+              <span class="currentDayLabel">day </span>
+              <span class="currentDayDate"> date</span>
+              </div>
+               <div class="currentDate">
+              <span class="currentDayLabel">day </span>
+              <span class="currentDayDate"> date</span>
+              </div>
+               <div class="currentDate">
+              <span class="currentDayLabel">day </span>
+              <span class="currentDayDate"> date</span>
+              </div>
+               <div class="currentDate">
+              <span class="currentDayLabel">day </span>
+              <span class="currentDayDate"> date</span>
+              </div>
+               <div class="currentDate">
+              <span class="currentDayLabel">day </span>
+              <span class="currentDayDate"> date</span>
+              </div>
+               <div class="currentDate">
+              <span class="currentDayLabel">day </span>
+              <span class="currentDayDate"> date</span>
+              </div>
+              
+              
+              
+              
+              
+            </div>
+            
+          </div>
+         <div class="headerTitle">
+          <div class="sessionInfo">
+            <span class="sessionLabel">Current Session</span>
+            <span class="currentDateHeader">-current Date-</span>
+          </div>
+          <div class="headerButtons">
+            <button class="saveSessionBtn" type="button">Save Session</button>
+            <button class="deleteSessionBtn" type="submit">Delete Session</button>
+          </div>
+        </div>
+          
           <div class="sessionTitle">
             <p class="status">Status:</p>
             <p class="statusField">Inactive</p>
             <p id="Timer">
               <span class="timerGradient">0d 0h 0m 0s</span>
             </p>
-
-            <hr />
+           
           </div>
 
           <!-- Actual Session box that contains all exercise nodes/rows -->
@@ -131,7 +172,7 @@
                 placeholder="Weight (optional)"
               />
               <button class="addExerciseBtn" type="submit">Add Exercise</button>
-              <button class="autoWeightBtn">Auto Calculate</button>
+       
             </form>
             <form>
               <div>
@@ -139,14 +180,8 @@
                   Start Session
                 </button>
 
-                <hr />
-                <input type="date" class="formInput" />
-                <button class="saveSessionBtn" type="button">
-                  Save Session
-                </button>
-                <button class="deleteSessionBtn" type="submit">
-                  Delete Session
-                </button>
+              
+               
               </div>
             </form>
           </div>
@@ -154,28 +189,12 @@
       </div>
       <!-- Exercise Library  -->
       <div class="sessionLibrary">
-        <p class="headerTitle">Exercise Library</p>
+        <p class="timerHeader">Exercise Library</p>
         <div class="exerciseList">
           <div class="background">
             <div class="exerciseLibraryItem">
-              <div>Push-Up</div>
-              <button class="exerciseLibraryAddBtn">+</button>
-            </div>
-
-            <div class="exerciseLibraryItem">
-              <div>Dead-Lift</div>
-              <button class="exerciseLibraryAddBtn">+</button>
-            </div>
-
-            <div class="exerciseLibraryItem">
-              <div>Squat</div>
-              <button class="exerciseLibraryAddBtn">+</button>
-            </div>
-          </div>
-          <div class="exerciseLibraryItem">
-            <div>Split-Squat</div>
-            <button class="exerciseLibraryAddBtn">+</button>
-          </div>
+              
+       
         </div>
         <div class="timerContainer">
           <div class="timerHeader">Timer</div>
