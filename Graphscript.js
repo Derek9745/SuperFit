@@ -16,6 +16,20 @@ document.addEventListener('DOMContentLoaded', () => {
     176, 176, 175, 175, 174, 174, 173
   ];
 
+  const allMoodData = [
+    7, 6, 8, 5, 7, 6, 7,
+    8, 7, 7, 6, 7, 8, 7,
+    6, 6, 7, 5, 6, 7, 6,
+    7, 8, 7, 6, 7, 7, 8
+  ];
+
+  const allWorkoutTimeData = [
+    30, 40, 35, 45, 50, 0, 0,
+    30, 30, 40, 45, 50, 20, 0,
+    35, 40, 40, 50, 60, 30, 0,
+    40, 45, 50, 55, 60, 35, 20
+  ];
+
 
   // Chart setup
   const ctx = document.getElementById('myLineChart').getContext('2d');
@@ -79,18 +93,29 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // UI Elements to tie into html file
   const weightLossBtn = document.getElementById('btnWeightLoss');
+  const moodBtn = document.getElementById('btnMoodLevel');
+  const workoutTimeBtn = document.getElementById('btnWorkoutTime');
   const runReportBtn = document.querySelector('.run-report');
   const graphTitle = document.getElementById('graphTitle');
   const timeRangeSelect = document.getElementById('timeRange');
 
-  let weightLossSelected = false;
+  let activeMetric = null;
   let selectedRange = parseInt(timeRangeSelect.value, 10);
 
   //button logic
   weightLossBtn.addEventListener('click', () => {
-    weightLossSelected = true;
-    graphTitle.textContent = 'Weight Loss';
-    // (Optional) you could visually highlight the active button here
+    activeMetric = 'weight';
+    graphTitle.textContent = 'Weight Change';
+  });
+
+  moodBtn.addEventListener('click', () => {
+    activeMetric = 'mood';
+    graphTitle.textContent = 'Mood Level';
+  });
+
+  workoutTimeBtn.addEventListener('click', () => {
+    activeMetric = 'workout';
+    graphTitle.textContent = 'Workout Time';
   });
 
   // Update selected range when dropdown changes,
@@ -102,7 +127,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Run Report button applies the selected dataset & range
   runReportBtn.addEventListener('click', () => {
-    if (!weightLossSelected) {
+    if (!activeMetric) {
       alert('Click a button first!');
       return;
     }
@@ -111,11 +136,30 @@ document.addEventListener('DOMContentLoaded', () => {
 
   //Updates chart based on current information
   function updateChartIfActive() {
-    if (!weightLossSelected) return;
+    if (!activeMetric) return;
 
     chart.data.labels = allDays.slice(0, selectedRange);
-    chart.data.datasets[0].label = 'Weight (lbs)';
-    chart.data.datasets[0].data = allWeightLossData.slice(0, selectedRange);
+
+    if (activeMetric === 'weight') {
+      chart.data.datasets[0].label = 'Weight (lbs)';
+      chart.data.datasets[0].data = allWeightLossData.slice(0, selectedRange);
+      chart.options.scales.y.title.text = 'Weight (lbs)';
+      chart.options.scales.y.ticks.stepSize = 1;
+      chart.options.scales.y.beginAtZero = false;
+    } else if (activeMetric === 'mood') {
+      chart.data.datasets[0].label = 'Mood Level (1-10)';
+      chart.data.datasets[0].data = allMoodData.slice(0, selectedRange);
+      chart.options.scales.y.title.text = 'Mood Level';
+      chart.options.scales.y.ticks.stepSize = 1;
+      chart.options.scales.y.beginAtZero = true;
+    } else if (activeMetric === 'workout') {
+      chart.data.datasets[0].label = 'Workout Time (mins)';
+      chart.data.datasets[0].data = allWorkoutTimeData.slice(0, selectedRange);
+      chart.options.scales.y.title.text = 'Minutes';
+      chart.options.scales.y.ticks.stepSize = 10;
+      chart.options.scales.y.beginAtZero = true;
+    }
+
     chart.update();
   }
 });
