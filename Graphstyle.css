@@ -126,17 +126,17 @@
     color: white; 
 }
 
-#btnWeightGain{
+#btnMoodLevel{
     background-color: #0892D0;
     color: white;
     transition: background-color 0.3s ease; 
 }
-#btnWeightGain:hover{
+#btnMoodLevel:hover{
     background-color: cyan;
     color: white; 
 }
 
-#btnWeightGain:checked{
+#btnMoodLevel:checked{
     background-color: cyan;
     color: white; 
 }
