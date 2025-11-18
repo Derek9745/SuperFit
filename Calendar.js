@@ -1,3 +1,4 @@
+import {personalizedWorkoutRecommendation} from 'recommendations.js';
 const monthYearDisplay = document.getElementById('monthYear');
 const calendarDays = document.getElementById('calendarDays');
 const prevMonthBtn = document.getElementById('prevMonth');
@@ -49,5 +50,24 @@ nextMonthBtn.addEventListener('click', () => {
     }
     renderCalendar();
 });
+document.addEventListener('DOMContentLoaded', () => {
+    const myButton = document.getElementById('myButton');
+      const popupContainer = document.getElementById('popupContainer');
+      const popupText = document.getElementById('popupText');
+      const closePopup = document.getElementById('closePopup');
 
+      myButton.addEventListener('click', () => {
+        const generatedText = personalizedWorkoutRecommendation();
+
+        popupText.textContent = generatedText;
+
+        
+        popupContainer.style.display = 'block';
+      });
+
+      closePopup.addEventListener('click', () => {
+        popupContainer.style.display = 'none';
+      });
+    });
+    
 renderCalendar();
